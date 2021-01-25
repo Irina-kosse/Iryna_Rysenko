@@ -1,0 +1,111 @@
+<!DOCTYPE html><html>
+<html>
+<head>
+<title>Изменение свойств элемента веб-страницы</title>
+<style>
+  textarea { 
+    color:blue;
+    background-color:#ffefff;
+    font-size:6.0mm; 
+    font-style:italic
+  }
+  .old { 
+    color:#ff00ff;
+    font-size:12mm;
+    font-style:normal;
+    font-weight:normal;
+  }
+  .italic_red { 
+    color:red; 
+    font-size:1.6cm; 
+    font-style:italic; 
+    font-weight:normal; 
+  }           
+  .bold_green { 
+    color:green; 
+    margin-left:30%;
+    font-size:12mm; 
+    font-weight:bold;
+    font-style:normal; 
+  }           
+  .outline { 
+    color:#ff00ff; 
+    font-size:12mm;
+    font-style:normal; 
+    font-weight:normal; 
+    outline-style:double;
+    outline-width:4px;
+    outline-color:rgb(100%,0%,0%);
+    background-image:url(back.gif); 
+    background-size:10px 10px; 
+  }
+</style>
+<script src="../lab.js"> Файл содержит функции: createAllTags(),
+showAllTags(), changeTag(), restoreTag(), changeCollection() и showTagInf() </script>
+</head>
+<body>
+<h1 id="h" style="text-align:center" class='old'>Изменение свойств заголовка</h1> 
+<form id="form">
+<textarea id="txt"></textarea><br> 
+</form>
+<form>  
+<span style="color:blue; font-size:4.5mm; font-weight:bold">Выбрать вид элемента:
+</span><br>
+<input type="radio" name="rad" onChange="k=1;" >наклонный красного цвета<br>
+<input type="radio" name="rad" onChange="k=2;">жирный зеленого цвета <br>
+<input type="radio" name="rad" onChange="k=3;">на английском языке <br>
+<input type="radio" name="rad" onChange="k=4;">в рамке и с фоном<br><br>
+<span style="color:blue; font-size:4.5mm;font-weight:bold">Выбрать режим:</span><br>
+<input type="radio" name="rad2" onChange=
+"h.onmousedown=changeTag; h.onmouseup=restoreTag">разрешить изменения<br>
+<input type="radio" name="rad2" onChange=" h.onmousedown=null; h.onmouseup=null;">
+запретить изменения<br><br>
+<span style="color:blue;font-size:4.5mm;font-weight:bold">Показать:</span><br>
+<input type="radio" name="rad3" checked onChange="showHelp();">Подсказку<br> 
+<input type="radio" name="rad3" onChange="showTags();">Теги <br>
+<input type="radio" name="rad3" onChange="alert(h.onmousedown)">Обработчик onmousedown<br>
+<input type="radio" name="rad3" onChange="alert(h.onmouseup)">Обработчик onmouseup
+</form>   
+<script>
+  "use strict";
+  var allTags, k=0, tags_=
+  "Web-страница содержит следующие теги (их номера, наименования, идентификаторы и содержимое):";
+  var dataTag= {
+    '0':{'class':'old','text':'Изменение свойств заголовка'},
+    '1':{'class':'italic_red','text':'Красный заголовок'},
+    '2':{'class':'bold_green','text':'Зеленый текст'},
+    '3':{'class':'old','text':'Changing header propeties'},
+    '4':{'class':'outline','text':'Заголовок имеет рамку и фон'}};
+ 
+  var  help= 'ПОДСКАЗКА ПОЛЬЗОВАТЕЛЮ:\n'+ 
+  ' - для задания \n'+
+  '     вида заголовка, ,\n' +
+  '     режима изменения заголовка,\n' +
+  '     вывода подсказки,\n' +
+  '     вывода параметров тегов Web-страницы,\n' +
+  '     вывода текста обработчиков событий: использовать элементы radio;\n'+  
+  ' - для изменения свойств заголовка: навести курсор;\n'+
+  ' - для восстановления свойств заголовка: отжать клавишу мышки.';
+  function showHelp() {
+    form.txt.rows=5;
+    form.txt.cols=80;
+    form.txt.value=help; 
+  }
+  showHelp();
+
+  var a=document.getElementById('h');
+  a.onmouseover=changeTag;
+  var b=document.getElementsByTagName('h1');
+  b.onclick=restoreTag;
+
+  createAllTags();
+  function showTags() {
+    showAllTags();
+    form.txt.rows=15;
+    form.txt.cols=50;
+    form.txt.value=tags_; 
+  }
+</script>
+
+</body>
+</html>
