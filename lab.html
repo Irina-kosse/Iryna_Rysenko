@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<script src="../click.js"></script>
+  <style>
+    #flower {
+      position: relative;
+      cursor: pointer;
+    }
+  </style>
+
+</head>
+
+<body>
+
+ <img id="flower" src="DSC_1709.jpg" alt="Изображение цветка" width=300 
+style="align:middle; float:left; margin: 10px 50px; border: outset 10px purple; border-radius:25%; ">
+
+<p id="txt" style="color:blue;font-size:8mm; position:absolute; left:0px;top:240px"> TEXT </p>
+
+<script> 
+var dx=10, dy=6, cl; 
+window.onclick=function() { cl=setInterval("moveTxt()",125); } 
+function f(x) { return 30*Math.sin(x*Math.PI/180); } 
+function moveTxt() { 
+var o=document.getElementById("txt").style; 
+if(parseInt(o.left) < innerWidth-75 && parseInt(o.top) < innerHeight-75) { 
+o.left=parseInt(o.left)+dx+"px"; 
+o.top=parseInt(o.top)+dy-f(parseInt(o.left))+"px"; 
+} 
+else clearInterval(cl); 
+} 
+</script> 
+
+</body>
+
+</html>
