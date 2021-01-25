@@ -1,0 +1,12 @@
+h1 { 
+text-align:center; 
+color: turquoise; 
+text-transform:uppercase; 
+font:italic 24px tahoma; 
+font-family: monospace;
+} 
+p { text-indent:1.5cm; 
+color:#000080; 
+text-align:center; 
+font-size:7mm; 
+}

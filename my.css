@@ -1,0 +1,14 @@
+body { 
+margin:2cm 1.5cm 2cm 2.5cm; 
+background-color:#e8e8e8; 
+} 
+h1 { 
+text-align:center; 
+color: orange; 
+font: italic small-caps 0.25in tahoma; 
+} 
+p { 
+text-indent:1.5cm; 
+color:#000080; 
+font-size:7mm; 
+}
