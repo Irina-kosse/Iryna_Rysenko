@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Получение случайных чисел, строк и диапазона из удаленного сервера </title>
+<link rel="stylesheet" href="../my.css">
+<style type="text/css">
+button {
+color:#008000;
+background-color:#cfffff;
+border:outset 3px blue;
+font-size:5.5mm;
+margin-left:0px;
+}
+</style>
+</head>
+<body>
+<h1>Получить следующие случайные величины</h1>
+<button type="button" onClick="getRandoms(numbs)"> числа</button> <br><br>
+<button type="button" onClick="getRandoms(strs)">Строки</button> <br><br>
+<button type="button" onClick="getRandoms(seqs)">Диапазон</button>
+<script>
+var server="http://www.random.org";
+var numbs="/integers/ ?num=20&min=1&max=99&col=5&base=10&format=plain&rnd=new";
+var strs="/strings/ ?num=2&len=16&digits=on&upperalpha=on&loweralpha=off&unique=on&
+format=plain&rnd=new";
+var seqs="/sequences/?&min=1&max=10&col=2&base=10&format=plain&rnd=new";
+var xhr=new XMLHttpRequest();
+function getRandoms(pars) {
+xhr.open("GET", server+pars);
+xhr.onerror=function(e) { alert("Error"); }
+xhr.onload=function() { alert(this.responseText); }
+xhr.send();
+}
+</script>
+</body>
+</html>
