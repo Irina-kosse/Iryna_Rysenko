@@ -1,0 +1,6 @@
+<<<<<<< HEAD
+Hi, friend
+Good bye
+=======
+Hi, friends
+>>>>>>> greet-name
