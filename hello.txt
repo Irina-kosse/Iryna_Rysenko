@@ -6,3 +6,4 @@ Hi, friends
 >>>>>>> greet-name
 
 For Kostiantyn
+third for Kostiantyn
